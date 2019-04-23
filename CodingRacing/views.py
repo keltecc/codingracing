@@ -1,3 +1,5 @@
+# *** coding: utf8 ***
+
 from datetime import datetime, timedelta
 import os
 import random

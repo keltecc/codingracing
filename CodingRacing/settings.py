@@ -1,3 +1,5 @@
+# *** coding: utf8 ***
+
 """
 Django settings for CodingRacing project.
 

@@ -1,3 +1,5 @@
+# *** coding: utf8 ***
+
 import hashlib
 
 import django.http

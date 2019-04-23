@@ -1,3 +1,5 @@
+# *** coding: utf8 ***
+
 from PIL import Image, ImageDraw, ImageFont
 import os
 

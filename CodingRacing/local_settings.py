@@ -1,3 +1,5 @@
+# *** coding: utf8 ***
+
 import os
 
 VK_APP_ID = 4828476
