@@ -1,0 +1,8 @@
+version: '2.3'
+
+services:
+  codingracing:
+    build: .
+    restart: always
+    ports:
+      - "127.0.0.1:8000:8000"
