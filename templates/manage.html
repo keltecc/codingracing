@@ -2,7 +2,7 @@
 <html class="fullscreen-background">
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Клавогонки | Менеджер</title>
+    <title>CodeRacing | Manager</title>
 
     <link rel='stylesheet' href='/static/fonts.css' type='text/css'>
     <link rel="stylesheet" href="/static/styles.css">
@@ -13,38 +13,30 @@
         <div class="">
             <a class="btn btn-default col-xs-offset-5 col-xs-3" role="button" href="/manage/create?language=csharp">C#</a>
             <a class="btn btn-default col-xs-offset-1 col-xs-3" role="button" href="/manage/create?language=javascript">JavaScript</a>
-            <a class="btn btn-default col-xs-offset-5 col-xs-3" role="button" href="/manage/create?language=asm">Ассемблер</a>
-            <a class="btn btn-default col-xs-offset-1 col-xs-3" role="button" href="/manage/create?language=python">Питон</a>
+            <a class="btn btn-default col-xs-offset-5 col-xs-3" role="button" href="/manage/create?language=asm">Asm</a>
+            <a class="btn btn-default col-xs-offset-1 col-xs-3" role="button" href="/manage/create?language=python">Python</a>
 
         </div>
     </div>
     <div class="content">
         <div class="row title">
-            <h1>Клавогонки</h1>
+            <h1>Code Racing</h1>
         </div>
         <div class="about row">
             <div class="qrcode">
-                %TODO%: <img src="/static/qrcode.png">
                 <div><a href="/">{{ uri }}</a></div>
             </div>
             <p>
-                <b>Сразись в скорости и чистоте написания кода!</b>
+                Code Racing on 4 langs: Asm, Python, С# and JavaScript.
             </p>
             <p>
-                Гонки проходят на Ассемблере, Питоне, С# и JavaScript.
+                Scoreboard: <a href="/scoreboard">{{ uri }}scoreboard</a>
             </p>
             <p>
-                Лучшим гонщикам &mdash; приятные подарки. Победитель же получит всё: почёт, славу и, конечно, главный приз!
-                Итоги подведем в <b>%TODO% 17:00</b>.
-            </p>
-            <p>
-                Результаты доступны онлайн на <a href="/scoreboard">{{ uri }}scoreboard</a>
-            </p>
-            <p>
-                Режимы гонок:
+                Racing modes:
                 <ul>
-                    <li><b>Тренировка</b>,чтобы проверить  свои силы. Доступно в любом месте и в любое время :)
-                    <li><b>Соревнование</b>: заезды до 4-х игроков.
+                    <li><b>Training</b>
+                    <li><b>Competition</b>: 2+ players
                 </ul>
             </p>
             <p>
