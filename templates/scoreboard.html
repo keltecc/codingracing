@@ -2,7 +2,7 @@
 <html class="fullscreen-background">
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Клавогонки</title>
+    <title>CodeRacing</title>
 
     <link rel='stylesheet' href='/static/fonts.css' type='text/css'>
     <link rel="stylesheet" href="/static/styles.css">
@@ -11,26 +11,23 @@
 <body>
     <div class="content">
         <div class="row title">
-            <h1>Клавогонки</h1>
-            <p>
-                Награждение победителей &mdash; в&nbsp;<b>17:00</b>.
-            </p>
+            <h1>Code Racing</h1>
         </div>
 
         <div class="scoreboard">
             {% if not results %}
                 <div>
                     <p>
-                        Успевай стать первым! Тренируйся на <a href="/">{{ uri }}</a>, приходи к нам и выигрывай призы.
+                        Want to be first? Train at <a href="/">{{ uri }}</a>
                     </p>
                 </div>
             {% else %}
                 <div class="result head">
                     <div class="place">&nbsp;</div>
                     <div class="photo">&nbsp;</div>
-                    <div class="name">Имя</div>
-                    <div class="language">Язык</div>
-                    <div class="speed">Лучшая скорость</div>
+                    <div class="name">Name</div>
+                    <div class="language">Lang</div>
+                    <div class="speed">Best Speed</div>
                 </div>
                 {% for result in results %}
                     <div class="result">
@@ -41,7 +38,7 @@
                         <div class="speed">
                             {{ result.max_speed }}
                             {% if forloop.first %}
-                                зн/мин
+                                CPM
                             {% endif %}
                         </div>
                     </div>

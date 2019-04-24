@@ -2,7 +2,7 @@
 <html class="fullscreen-background">
 <head lang="ru">
     <meta charset="UTF-8">
-    <title>Клавогонки</title>
+    <title>CodeRacing</title>
 
     <link rel='stylesheet' href='/static/fonts.css' type='text/css'>
     <link rel="stylesheet" href="/static/styles.css">
@@ -11,7 +11,7 @@
 <body>
     <div class="game">
         <div class="row">
-            <div id="editor" class="col-sm-offset-1 col-sm-5 col-xs-offset-1 col-xs-10">Здесь надо будет писать код</div>
+            <div id="editor" class="col-sm-offset-1 col-sm-5 col-xs-offset-1 col-xs-10">Write your code here</div>
             <div class="code-image col-xs-offset-0 col-sm-5 col-xs-offset-2 col-xs-10">
                 <img src=""/>
                 <div class="countdown" id="countdown"></div>
@@ -19,28 +19,28 @@
         </div>
         <div class="row">
             <div class="howto col-sm-offset-1 col-sm-3">
-                <div><b>Ctrl/Cmd+Q</b> &mdash; перейти к первой ошибке (обновляется раз в секунду)</div>
-                <div><b>Ctrl/Cmd+L</b> &mdash; перейти к строке по номеру</div>
-                <div><b>Ctrl/Cmd+Space</b> &mdash; подсказки</div>
-                <div><a class="hotkeys-button">Другие хоткеи</a></div>
+                <div><b>Ctrl/Cmd+Q</b> &mdash; jump to first mistake (updates every second)</div>
+                <div><b>Ctrl/Cmd+L</b> &mdash; jump to line by number/div>
+                <div><b>Ctrl/Cmd+Space</b> &mdash; suggestions</div>
+                <div><a class="hotkeys-button">Other hotkeys</a></div>
             </div>
             <div class="finish-button-container col-sm-2">
-                <a href="#" class="btn btn-lg btn-success" role="button">Закончить <small>(Ctrl/Cmd+Enter)</small></a>
+                <a href="#" class="btn btn-lg btn-success" role="button">Finish <small>(Ctrl/Cmd+Enter)</small></a>
             </div>
 
             <div class="game-results col-sm-offset-1 col-sm-3 align-left">
                 <div>
-                    Вы набирали программу <span id="seconds"></span> сек.
+                    You typed the program <span id="seconds"></span> sec.
                 </div>
                 <div>
-                    Расстояние Левенштейна: <span id="distance" data-toggle="tooltip" data-placement="top" title="За каждую единицу расстояния мы начисляем 5 штрафных секунд"></span>.
+                   Levenshtein distance: <span id="distance" data-toggle="tooltip" data-placement="top" title="For each point of distance we add 5 penalty seconds."></span>.
                 </div>
                 <div>
-                    Итоговое время: <span id="total_seconds"></span>, скорость &mdash; <span id="speed"></span> зн/мин.
+                    Total: <span id="total_seconds"></span>, speed &mdash; <span id="speed"></span> CPM (ch/min).
                 </div>
             </div>
             <div class="return-to-main-button-container col-sm-2">
-                 <a href="/" class="btn btn-lg btn-success" role="button">Вернуться на главную</a>
+                 <a href="/" class="btn btn-lg btn-success" role="button">Back to the main page</a>
             </div>
 
 
