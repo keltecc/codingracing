@@ -1,3 +1,5 @@
+# *** coding: utf8 ***
+
 from PIL import Image, ImageDraw, ImageFont
 import os
 
@@ -26,7 +28,7 @@ def generate(code, **kwargs):
     image = Image.new('RGBA', (3 * width, 3 * height), background_color)
     draw = ImageDraw.Draw(image)
     draw.rectangle([0, 0, 100, 3 * height], '#eee', '#eee')
-    font = ImageFont.truetype(os.path.join(local_settings.PROJECT_DIR, 'fonts/Consolas.ttf'), font_size)
+    font = ImageFont.truetype(os.path.join(local_settings.PROJECT_DIR, 'fonts/DejaVuSansMono.ttf'), font_size)
 
     lines = code.split('\n')
     for line_idx, line in enumerate(lines):

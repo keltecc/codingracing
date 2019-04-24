@@ -1,3 +1,5 @@
+# *** coding: utf8 ***
+
 from datetime import datetime, timedelta
 import os
 import random
@@ -31,7 +33,8 @@ def generate_password(length=4):
 def index(request):
     user = decorators.get_user_by_request(request)
     context = {'is_auth': bool(user),
-               'vk_redirect_url': local_settings.VK_REDIRECT_URL}
+               'vk_redirect_url': local_settings.VK_REDIRECT_URL,
+               'vk_app_id': local_settings.VK_APP_ID}
     if context['is_auth']:
         context['user'] = user
     return render(request, 'index.html', context)

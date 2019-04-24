@@ -1,0 +1,18 @@
+version: '2.3'
+
+services:
+  codingracing:
+    build: .
+    restart: always
+
+  nginx:
+    image: nginx
+    restart: always
+    ports:
+      - 80:80
+    depends_on:
+      - codingracing
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - .:/var/www/:ro
+

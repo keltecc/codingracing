@@ -1,3 +1,5 @@
+# *** coding: utf8 ***
+
 import glob
 import os
 import random
