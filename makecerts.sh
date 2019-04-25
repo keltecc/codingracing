@@ -1,18 +1,24 @@
 #!/bin/bash
 
-HOSTNAME="coderacing.ruc.tf"
+if [ "$EUID" -ne 0 ]; then
+	echo "sudo please"
+	exit
+fi
+
+HOSTNAME="ctf.kelte.cc"
+TEST_CERT="--test-cert"
 
 rm -rf "/tmp/certs/"
 mkdir -p "/tmp/certs/"
 
-if [ -d "./certs/" ]; then
+if [ -d "./nginx/certs/" ]; then
 	echo "certs exists!"
 	exit
 fi
 
-mkdir -p "./certs/"
+mkdir -p "./nginx/certs/"
 
-certbot -d "$HOSTNAME" \
+certbot -d "$HOSTNAME" $TEST_CERT \
 	--config-dir "/tmp/certs/$HOSTNAME" \
 	--work-dir "/tmp/certs/$HOSTNAME" \
 	--logs-dir "/tmp/certs/$HOSTNAME" \
@@ -23,10 +29,10 @@ certbot -d "$HOSTNAME" \
 
 certs_dir="/tmp/certs/$HOSTNAME/live/$HOSTNAME/"
 
-cp "$certs_dir/fullchain.pem" "./certs/fullchain.pem"
-cp "$certs_dir/privkey.pem" "./certs/privkey.pem"
+cp "$certs_dir/fullchain.pem" "./nginx/certs/fullchain.pem"
+cp "$certs_dir/privkey.pem" "./nginx/certs/privkey.pem"
 
-openssl dhparam -out "./certs/dhparam.pem" 2048
+openssl dhparam -out "./nginx/certs/dhparam.pem" 2048
 
 echo "certs created!"
 

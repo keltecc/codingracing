@@ -56,7 +56,10 @@
         </div>
         {% else %}
         <div class="vk-login-button-container row">
-            <a class="btn btn-primary btn-lg" href="https://oauth.vk.com/authorize?client_id={{ vk_app_id }}&scope=&redirect_uri={{ vk_redirect_url }}&display=page&v=5.29&response_type=code&state=auth" role="button">Login using VK</a>
+	    <form method="GET" action="/auth">
+		<input type="text" name="username" autocomplete="off" placeholder="username" class="col-xs-offset-1 col-xs-5 form-control-static">
+                <input type="submit" class="btn btn-primary btn-lg" role="button" value="Login">
+	    </form>
         </div>
         {% endif %}
     </div>

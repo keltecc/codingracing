@@ -1,5 +1,7 @@
 # *** coding: utf8 ***
 
+from time import time
+from random import randint
 from datetime import datetime, timedelta
 import os
 import random
@@ -32,9 +34,7 @@ def generate_password(length=4):
 @ensure_csrf_cookie
 def index(request):
     user = decorators.get_user_by_request(request)
-    context = {'is_auth': bool(user),
-               'vk_redirect_url': local_settings.VK_REDIRECT_URL,
-               'vk_app_id': local_settings.VK_APP_ID}
+    context = {'is_auth': bool(user)}
     if context['is_auth']:
         context['user'] = user
     return render(request, 'index.html', context)
@@ -45,38 +45,27 @@ def auth_user(response, user):
     response.set_cookie('auth', decorators.get_auth_cookie(user.vk_id))
 
 
+def get_random_vk_id():
+    return int(time() * 1000 * 1000 + randint(0, 1000))
+
+
 # TODO: check state
 def auth(request):
-    if 'code' not in request.GET:
-        return django.http.JsonResponse({'error': request.GET.get('error_description', 'unknown')})
-    code = request.GET['code']
-    access_token_url = 'https://oauth.vk.com/access_token?client_id=%d&client_secret=%s&code=%s&redirect_uri=%s' % (
-        local_settings.VK_APP_ID,
-        local_settings.VK_APP_SECRET,
-        code,
-        local_settings.VK_REDIRECT_URL
-    )
-    vk_answer = requests.get(access_token_url).json()
-    if 'access_token' not in vk_answer:
-        return django.http.JsonResponse({'error': vk_answer.get('error_description', 'unknown')})
-    access_token = vk_answer['access_token']
-
-    getuser_url = 'https://api.vk.com/method/users.get?fields=city,photo_50,occupation&access_token=%s&v=5.29' % access_token
-    vk_answer = requests.get(getuser_url).json()
-    if 'response' not in vk_answer:
-        return django.http.JsonResponse({'error': 'Can\'t retrieve information about you from VK'})
-    user_info = vk_answer['response'][0]
-
+    if 'username' not in request.GET:
+        return django.http.JsonResponse({'error': 'set a username'})
+    username = request.GET['username']
+    if len(username) == 0:
+        return django.http.JsonResponse({'error': 'username is too short'})
     response = django.http.HttpResponseRedirect('/')
     try:
-        user = models.User.objects.get(vk_id=user_info['id'])
+        user = models.User.objects.get(first_name=username)
         auth_user(response, user)
     except models.User.DoesNotExist:
         new_user = models.User()
-        new_user.vk_id = user_info['id']
-        new_user.first_name = user_info['first_name']
-        new_user.last_name = user_info['last_name']
-        new_user.photo_50 = user_info['photo_50']
+        new_user.vk_id = get_random_vk_id()
+        new_user.first_name = username
+        new_user.last_name = ''
+        new_user.photo_50 = '/static/profile.png'
         # new_user.city = user_info['city']['title']
         new_user.city = 'Unknown'
         new_user.save()
@@ -243,11 +232,11 @@ def contest_enjoy(request):
 
     games = models.ContestGame.objects.filter(password__iexact=password, state='not-started')
     if not games.exists():
-        return django.http.JsonResponse({'error': 'Неверный пароль'})
+        return django.http.JsonResponse({'error': 'Wrong password'})
 
     game = games[0]
     if game.users.count() == local_settings.MAX_USERS_IN_CONTEST:
-        return django.http.JsonResponse({'error': 'Слишком много участников :('})
+        return django.http.JsonResponse({'error': 'Too many participants :('})
 
     game.users.add(request.user)
     game.save()

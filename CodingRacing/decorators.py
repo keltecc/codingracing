@@ -50,7 +50,7 @@ def manage_only(function):
         user = get_user_by_request(request)
         if not user:
             return django.http.HttpResponseRedirect('/')
-        if user.vk_id not in local_settings.MANAGERS:
+        if user.first_name not in local_settings.MANAGERS:
             return django.http.HttpResponseRedirect('/')
         request.user = user
         return function(request, *args, **kwargs)
