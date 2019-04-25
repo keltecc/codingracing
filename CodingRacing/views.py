@@ -327,7 +327,7 @@ def contest_update(request, game_id):
         values('user__first_name', 'user__last_name', 'last_text'). \
         order_by('time')
     competitors = {'%s %s' % (info['user__first_name'], info['user__last_name']):
-                       min(100, int(len(info['last_text']) / len(game.text) * 100)) for info in last_texts}
+                       min(100, int(float(len(info['last_text'])) / len(game.text) * 100)) for info in last_texts}
 
     diff_position = code_database.find_diff_position(game.text, current_text)
 
