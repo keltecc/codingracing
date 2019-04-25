@@ -11,5 +11,5 @@ PROJECT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), os.pardir
 
 MAX_USERS_IN_CONTEST = 4
 
-MANAGERS = ['v0va']
+MANAGERS = [os.environ.get('MANAGER', 'admin')]
 
