@@ -1,3 +1,12 @@
+# how2run
+
+- edit manager username in `docker-compose.yml`
+- run with `docker-compose up --build -d` 
+
+***
+
+legacy readme starts here:
+
 # Как это вообще работает
 
 Все желающие заходят на веб-сервис и могут зайти в тренировку.
