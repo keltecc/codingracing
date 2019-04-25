@@ -4,7 +4,7 @@ import os
 
 VK_APP_ID = 6957617
 VK_APP_SECRET = 'x03TlMmHDMuNE1OmmP7F'
-VK_REDIRECT_URL = 'http://ctf.kelte.cc/auth'
+VK_REDIRECT_URL = 'http://coderacing.ruc.tf/auth'
 
 LEVENSHTEIN_PENALTY = 5
 DELAY_GAME_START = 5  # in seconds
