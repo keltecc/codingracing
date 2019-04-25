@@ -2,6 +2,8 @@
 
 - clone with submodules `git clone --recursive https://github.com/keltecc/codingracing`
 - edit manager username in `docker-compose.yml`
+- install certs dependencies `apt install -y certbot openssl`
+- create https certs `./makecerts.sh`
 - run with `docker-compose up --build -d` 
 
 ***
