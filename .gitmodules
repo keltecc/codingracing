@@ -1,9 +1,10 @@
 [submodule "ace"]
 	path = ace
 	url = git@github.com:ajaxorg/ace.git
-[submodule "third-party/ace"]
-	path = third-party/ace
+[submodule "application/third-party/ace"]
+	path = application/third-party/ace
 	url = git@github.com:ajaxorg/ace.git
-[submodule "static/sonic"]
-	path = static/sonic
+[submodule "application/static/sonic"]
+	path = application/static/sonic
 	url = git@github.com:cadc/SonicGIF.git
+

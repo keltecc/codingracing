@@ -2,7 +2,7 @@ version: '2.3'
 
 services:
   codingracing:
-    build: .
+    build: application
     restart: always
 
   nginx:
@@ -14,8 +14,8 @@ services:
     depends_on:
       - codingracing
     volumes:
-      - ./certs:/certs/:ro
+      - ./nginx/certs:/certs/:ro
       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
-      - .:/var/www/:ro
-      - ./logs:/var/log/nginx
+      - ./application:/var/www/:ro
+      - ./nginx/logs:/var/log/nginx
 
