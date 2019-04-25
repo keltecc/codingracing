@@ -1,3 +1,15 @@
+# how2run
+
+- clone with submodules `git clone --recursive https://github.com/keltecc/codingracing`
+- edit manager username in `docker-compose.yml`
+- install certs dependencies `apt install -y certbot openssl`
+- create https certs `./makecerts.sh`
+- run with `docker-compose up --build -d` 
+
+***
+
+legacy readme starts here:
+
 # Как это вообще работает
 
 Все желающие заходят на веб-сервис и могут зайти в тренировку.

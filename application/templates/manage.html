@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html class="fullscreen-background">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>CodeRacing | Manager</title>
+
+    <link rel='stylesheet' href='/static/fonts.css' type='text/css'>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+</head>
+<body class="manage">
+    <div class="manage-select-language">
+        <div class="">
+            <a class="btn btn-default col-xs-offset-5 col-xs-3" role="button" href="/manage/create?language=csharp">C#</a>
+            <a class="btn btn-default col-xs-offset-1 col-xs-3" role="button" href="/manage/create?language=javascript">JavaScript</a>
+            <a class="btn btn-default col-xs-offset-5 col-xs-3" role="button" href="/manage/create?language=asm">Asm</a>
+            <a class="btn btn-default col-xs-offset-1 col-xs-3" role="button" href="/manage/create?language=python">Python</a>
+
+        </div>
+    </div>
+    <div class="content">
+        <div class="row title">
+            <h1>Code Racing</h1>
+        </div>
+        <div class="about row">
+            <div class="qrcode">
+                <div><a href="/">{{ uri }}</a></div>
+            </div>
+            <p>
+                Code Racing on 4 langs: Asm, Python, С# and JavaScript.
+            </p>
+            <p>
+                Scoreboard: <a href="/scoreboard">{{ uri }}scoreboard</a>
+            </p>
+            <p>
+                Racing modes:
+                <ul>
+                    <li><b>Training</b>
+                    <li><b>Competition</b>: 2+ players
+                </ul>
+            </p>
+            <p>
+                Lets go!
+            </p>
+        </div>
+    </div>
+    <script type="text/javascript" src="/static/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/ajax-setup.js"></script>
+    <script type="text/javascript" src="/static/codingracing.js"></script>
+</body>
+</html>

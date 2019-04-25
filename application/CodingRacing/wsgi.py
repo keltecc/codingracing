@@ -1,3 +1,5 @@
+# *** coding: utf8 ***
+
 """
 WSGI config for CodingRacing project.
 

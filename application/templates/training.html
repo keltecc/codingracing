@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html class="fullscreen-background">
+<head lang="ru">
+    <meta charset="UTF-8">
+    <title>CodeRacing</title>
+
+    <link rel='stylesheet' href='/static/fonts.css' type='text/css'>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="game">
+        <div class="row">
+            <div id="editor" class="col-sm-offset-1 col-sm-5 col-xs-offset-1 col-xs-10">Write your code here</div>
+            <div class="code-image col-xs-offset-0 col-sm-5 col-xs-offset-2 col-xs-10">
+                <img src=""/>
+                <div class="countdown" id="countdown"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="howto col-sm-offset-1 col-sm-3">
+                <div><b>Ctrl/Cmd+Q</b> &mdash; jump to first mistake (updates every second)</div>
+                <div><b>Ctrl/Cmd+L</b> &mdash; jump to line by number</div>
+                <div><b>Ctrl/Cmd+Space</b> &mdash; suggestions</div>
+                <div><a class="hotkeys-button">Other hotkeys</a></div>
+            </div>
+            <div class="finish-button-container col-sm-2">
+                <a href="#" class="btn btn-lg btn-success" role="button">Finish <small>(Ctrl/Cmd+Enter)</small></a>
+            </div>
+
+            <div class="game-results col-sm-offset-1 col-sm-3 align-left">
+                <div>
+                    You typed the program <span id="seconds"></span> sec.
+                </div>
+                <div>
+                   Levenshtein distance: <span id="distance" data-toggle="tooltip" data-placement="top" title="For each point of distance we add 5 penalty seconds."></span>.
+                </div>
+                <div>
+                    Total: <span id="total_seconds"></span>, speed &mdash; <span id="speed"></span> CPM (ch/min).
+                </div>
+            </div>
+            <div class="return-to-main-button-container align-left col-sm-3">
+                <a href="#" class="btn btn-lg btn-success" role="button">One more?</a>
+                <a href="/" class="btn btn-lg btn-default">Back to the main page</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade faq">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="i-understood close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Code Racing is...</h4>
+          </div>
+          <div class="modal-body">
+                <p>Code Racing &mdash; are speed competitions in Asm, Python C# и JavaScript</p>
+                
+				<p class="question">Q. What I need to do?</p>
+                <p>A. You need to type code on the right side as fast as you can!</p>
+
+                <p class="question">Q. How you calculate typing speed?</p>
+                <p>A. We add penalty to spent time. After this, the length of the program is divided by the total time and we get speed!</p>
+
+                <p class="question">Q. How is the penalty time calculated?</p>
+                <p>A. Penalty time is calculated as fivefold <a href="https://ru.wikipedia.org/wiki/%D0%A0%D0%B0%D1%81%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D0%B5_%D0%9B%D0%B5%D0%B2%D0%B5%D0%BD%D1%88%D1%82%D0%B5%D0%B9%D0%BD%D0%B0" target="_blank">Levenshtein distance</a> between your and source code.</p>
+
+                <p class="question">Q. I need write code exactly character-in-character?</p>
+                <p>A. No, all whitespace characters (including tabs and line breaks) are ignored. So you can write everything in one line.</p>
+
+                <p class="question">Q. Can I optimize program's code? For example replace x = x + 1 to x += 1.</p>
+                <p>A. No, you can't. You need to write exactly the same program.</p>
+          </div>
+          <div class="modal-footer">
+            To begin press <button type="button" class="i-understood btn btn-primary">I understood everything</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="/static/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/static/ajax-setup.js"></script>
+    <script type="text/javascript" src="/static/ace.js"></script>
+    <script type="text/javascript" src="/static/ext-language_tools.js"></script>
+    <script type="text/javascript" src="/static/codingracing.js"></script>
+</body>
+</html>
