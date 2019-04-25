@@ -8,4 +8,5 @@ __pycache__/
 *.swp
 *.py[cod]
 
-db.sqlite
+db.sqlite3
+certs/
