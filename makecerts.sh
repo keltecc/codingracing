@@ -5,7 +5,7 @@ if [ "$EUID" -ne 0 ]; then
 	exit
 fi
 
-HOSTNAME="ctf.kelte.cc"
+HOSTNAME="coderacing.ruc.tf"
 TEST_CERT="--test-cert"
 
 rm -rf "/tmp/certs/"

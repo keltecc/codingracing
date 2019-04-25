@@ -3,7 +3,7 @@ version: '2.3'
 services:
   codingracing:
     environment:
-      - MANAGER=admin
+      - MANAGER=kekozavr
     build: application
     restart: always
 
