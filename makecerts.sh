@@ -6,7 +6,7 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 HOSTNAME="coderacing.ruc.tf"
-TEST_CERT="--test-cert"
+#TEST_CERT="--test-cert"
 
 rm -rf "/tmp/certs/"
 mkdir -p "/tmp/certs/"
