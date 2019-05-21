@@ -1,6 +1,7 @@
 # how2run
 
 - clone with submodules `git clone --recursive https://github.com/keltecc/codingracing`
+- checkout branch without security `git checkout no-https`
 - edit manager username in `docker-compose.yml`
 - run with `docker-compose up --build -d` 
 
